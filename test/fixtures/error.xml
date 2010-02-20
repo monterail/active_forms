@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<error apiVersion="1.0" code="API_TIMESTAMP_INVALID" message="Api timestamp parameter value out of 15 minutes slot" requestMethod="GET" requestTimestamp="2010-02-18T16:31:53.060+01:00" requestURL="/client/dummies" xmlns="http://api.example.com"/>

@@ -8,7 +8,10 @@ begin
     gem.summary = %Q{Active Forms API wrapper}
     gem.email = "michal.szajbe@gmail.com"
     gem.authors = ["Michał Szajbe"]
+    gem.add_dependency "activesupport", ">= 0"
+    gem.add_dependency "httparty", ">= 0.5.2"
     gem.add_development_dependency "thoughtbot-shoulda", ">= 2.10.2"
+    gem.add_development_dependency "fakeweb", ">= 1.2.8"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new

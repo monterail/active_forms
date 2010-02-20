@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dummies apiVersion="1.1" xmlns="http://api.example.com/1.1">
+  <dummy name="pit" aCode="pitcode" />
+</dummies>

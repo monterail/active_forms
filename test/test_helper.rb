@@ -68,3 +68,20 @@ class Test::Unit::TestCase
     File.read(File.join(File.dirname(__FILE__), "fixtures", "#{file}.xml"))
   end
 end
+
+def define_mapper(klass)
+  Object.const_set(klass, Class.new(ActiveForms::Mapper))
+  case klass
+  when "Dummy"
+    Dummy.class_eval  do
+      columns :name, :formCode
+    end
+  end
+end
+
+def reset_mapper(klass)
+  Object.send(:remove_const, klass) rescue nil
+  define_mapper(klass)
+end
+
+define_mapper("Dummy")

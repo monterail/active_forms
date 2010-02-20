@@ -1,6 +1,7 @@
 require 'active_support'
 
 require 'active_forms/configuration'
+require 'active_forms/mapper'
 require 'active_forms/request'
 
 module ActiveForms

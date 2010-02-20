@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms
+xmlns="http://api.activeforms.com"
+apiVersion="1.0"
+>
+<form
+name="Wniosek o~karte kredytowa"
+code="credit_card_application"
+url="https://www.activeforms.com/mybank/wniosek_o_karte_kredytowa"
+status="active"
+activeReleaseCode="version_1"
+activeReleaseName="Wersja pierwsza"
+title="Wniosek o~karte kredytowa"
+isPrintAgreement="isPrintable"
+/>
+<form
+name="Wniosek o~kredyt hipoteczny"
+code="mortgage_credit"
+url="https://www.activeforms.com/mybank/wniosek_o_kredyt_hipoteczny"
+status="inactive"
+/>
+</forms>

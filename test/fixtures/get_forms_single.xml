@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms
+xmlns="http://api.activeforms.com"
+apiVersion="1.0"
+>
+<form
+name="Wniosek o~kredyt hipoteczny"
+code="mortgage_credit"
+url="https://www.activeforms.com/mybank/wniosek_o_kredyt_hipoteczny"
+status="inactive"
+/>
+</forms>

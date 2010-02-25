@@ -60,7 +60,7 @@ module ActiveForms
     end
 
     def url_with_path
-      url = ActiveForms.configuration.url[:protocol] + "://" + ActiveForms.configuration.url[:host]
+      url = ActiveForms.configuration.api_url[:protocol] + "://" + ActiveForms.configuration.api_url[:host]
       [url, ActiveForms.configuration.base_url, path].join('/')
     end
 

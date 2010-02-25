@@ -16,7 +16,8 @@ class Test::Unit::TestCase
 
   def configure
     ActiveForms.configure do |c|
-      c.url        = { :protocol => "https", :host => "api.example.com", :port => 443 }
+      c.api_url    = { :protocol => "https", :host => "api.example.com" }
+      c.url        = { :protocol => "https", :host => "www.example.com" }
       c.base_url   = "client"
       c.api_key    = "123456"
       c.secret_key = "abcdef"

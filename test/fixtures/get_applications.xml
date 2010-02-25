@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications
+xmlns="http://api.activeforms.com"
+apiVersion="1.0"
+>
+<application
+number="12234"
+formCode="credit_card_application"
+formVersionCode="version_1"
+date="2007-08-23T12:43:03"
+status="sent"
+isPrintable="true"
+/>
+<application
+number="12235"
+formCode="credit_card_application"
+formVersionCode="version_1"
+date="2007-08-23T12:44:03"
+status="sent"
+isPrintable="true"
+/>
+</applications>

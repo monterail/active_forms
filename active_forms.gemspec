@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{active_forms}
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Micha\305\202 Szajbe"]
-  s.date = %q{2010-02-25}
+  s.date = %q{2010-03-16}
   s.email = %q{michal.szajbe@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -22,12 +22,15 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "active_forms.gemspec",
      "lib/active_forms.rb",
      "lib/active_forms/application.rb",
+     "lib/active_forms/application_print.rb",
      "lib/active_forms/configuration.rb",
      "lib/active_forms/form.rb",
      "lib/active_forms/mapper.rb",
      "lib/active_forms/request.rb",
+     "test/active_forms/application_print_test.rb",
      "test/active_forms/application_test.rb",
      "test/active_forms/form_test.rb",
      "test/active_forms/mapper_test.rb",
@@ -35,6 +38,7 @@ Gem::Specification.new do |s|
      "test/active_forms_test.rb",
      "test/fixtures/error.xml",
      "test/fixtures/get_applicationdata.xml",
+     "test/fixtures/get_applicationprint.xml",
      "test/fixtures/get_applications.xml",
      "test/fixtures/get_applications_single.xml",
      "test/fixtures/get_forms.xml",
@@ -47,7 +51,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{Active Forms API wrapper}
   s.test_files = [
-    "test/active_forms/application_test.rb",
+    "test/active_forms/application_print_test.rb",
+     "test/active_forms/application_test.rb",
      "test/active_forms/form_test.rb",
      "test/active_forms/mapper_test.rb",
      "test/active_forms/request_test.rb",

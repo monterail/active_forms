@@ -37,6 +37,16 @@ module ActiveForms
       @attributes.stringify_keys!
     end
 
+    # ignore
+    def xmlns=(value)
+      nil
+    end
+
+    # ignore
+    def apiVersion=(value)
+      nil
+    end
+
     def ==(comparison_object)
       attributes == comparison_object.attributes
     end

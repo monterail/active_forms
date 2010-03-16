@@ -22,11 +22,18 @@ module ActiveForms
       end
     end
 
-    attr_accessor :attributes
+    attr_reader :attributes
 
     def initialize(attributes = {})
+      self.attributes = attributes
+    end
+
+    def attributes=(new_attributes = {})
       @attributes = HashWithIndifferentAccess.new
-      @attributes.merge!(attributes)
+
+      # use attribute writers
+      new_attributes.each { |k, v| respond_to?("#{k}=") ? send("#{k}=", v) : (@attributes[k] = v) }
+
       @attributes.stringify_keys!
     end
 

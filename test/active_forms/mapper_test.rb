@@ -38,6 +38,18 @@ class ActiveForms::MapperTest < Test::Unit::TestCase
         assert_equal "fake", @dummy.name
         assert_equal "code", @dummy.formCode
       end
+
+      should "use writer methotd when mass assigning attributes" do
+        @dummy.instance_eval do
+          def name=(value)
+            @attributes["name"] = "#{value} modified"
+          end
+        end
+
+        @dummy.attributes = { :name => "name" }
+
+        assert_equal "name modified", @dummy.name
+      end
     end
   end
 end

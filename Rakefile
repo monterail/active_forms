@@ -8,6 +8,7 @@ begin
     gem.summary = %Q{Active Forms API wrapper}
     gem.email = "michal.szajbe@gmail.com"
     gem.authors = ["Michał Szajbe"]
+    gem.homepage = "http://github.com/monterail/active_forms"
     gem.add_dependency "activesupport", ">= 0"
     gem.add_dependency "httparty", ">= 0.5.2"
     gem.add_development_dependency "thoughtbot-shoulda", ">= 2.10.2"

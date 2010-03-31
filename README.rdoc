@@ -1,6 +1,6 @@
 = active_forms
 
-ActiveForms wrapper
+ActiveForms API wrapper.
 
 == Copyright
 

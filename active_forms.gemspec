@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Micha\305\202 Szajbe"]
-  s.date = %q{2010-03-16}
+  s.date = %q{2010-04-01}
   s.email = %q{michal.szajbe@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -46,6 +46,7 @@ Gem::Specification.new do |s|
      "test/fixtures/success.xml",
      "test/test_helper.rb"
   ]
+  s.homepage = %q{http://github.com/monterail/active_forms}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}

@@ -45,8 +45,13 @@ module ActiveForms
     end
 
     def perform
-      response = HTTParty.send(http_method.downcase, uri)
-      raise_error(response)
+      begin
+        response = HTTParty.send(http_method.downcase, uri)
+        raise_error(response)
+      rescue
+        response = HTTParty.send(http_method.downcase, uri)
+        raise_error(response)
+      end
       response
     end
 
@@ -78,8 +83,12 @@ module ActiveForms
 
     def raise_error(response)
       if response["error"]
-        klass = ("ActiveForms::" << response["error"]["code"].downcase.camelize).constantize
-        raise klass.new(response["error"]["message"])
+        begin
+          klass = ("ActiveForms::" << response["error"]["code"].downcase.camelize).constantize
+          raise klass.new(response["error"]["message"])
+        rescue NoMethodError
+          raise("Unknown exception: #{response["error"].inspect}")
+        end
       end
     end
   end

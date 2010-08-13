@@ -10,7 +10,7 @@ class ActiveForms::Application < ActiveForms::Mapper
       hashes = response["applications"]["application"]
       hashes = [hashes] if hashes.is_a?(Hash)
 
-      objects = hashes.map { |attributes| new(attributes) }
+      objects = hashes.present? ? hashes.map { |attributes| new(attributes) } : []
     end
 
     # required params:

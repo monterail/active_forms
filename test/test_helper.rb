@@ -1,12 +1,11 @@
 # encoding: UTF-8
 
-require 'rubygems'
-require 'test/unit'
+require 'rubygems' if RUBY_VERSION < '1.9'
+require 'bundler/setup'
+
 require 'shoulda'
 require 'fakeweb'
 
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-$LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'active_forms'
 
 FakeWeb.allow_net_connect = false

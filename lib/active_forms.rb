@@ -1,6 +1,9 @@
 # encoding: UTF-8
 
 require 'active_support'
+require 'active_support/core_ext/hash/indifferent_access'
+require 'active_support/core_ext/string/inflections'
+require 'active_support/core_ext/string/starts_ends_with'
 
 require 'active_forms/configuration'
 require 'active_forms/mapper'

@@ -99,6 +99,8 @@ module ActiveForms
         rescue NameError, NoMethodError
           raise("Unknown exception: #{response["error"].inspect}")
         end
+      elsif response.response.code !~ /^20\d$/
+        raise Error.new("Request returned status #{response.response.code} and does include properly formatted error message.")
       end
     end
   end

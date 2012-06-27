@@ -111,5 +111,18 @@ class ActiveForms::RequestTest < Test::Unit::TestCase
         assert_equal @response.parsed_response, request.perform.parsed_response
       end
     end
+
+    context "Request that returns not properly formatted response with status != 20x" do
+      setup do
+        stub_get(/.+/, error_response("40x.html"))
+        @request = ActiveForms::Request.new(:get, "entries")
+      end
+
+      should "raise Error exception" do
+        assert_raise ActiveForms::Error, "Request returned status 401 and does include properly formatted error message." do
+          @request.perform
+        end
+      end
+    end
   end
 end

@@ -9,10 +9,10 @@ class ActiveForms::Token < ActiveForms::Mapper
     def all(params = {})
       response = ActiveForms::Request.get('formaccesstokens', params)
 
-      tokens = response['formAccessTokens']['token']
-      tokens = [tokens] if tokens.is_a?(Hash)
+      hashes = response['formAccessTokens']['token']
+      hashes = [hashes] if hashes.is_a?(Hash)
 
-      objects = tokens.present? ? tokens.map { |attributes| new(attributes) } : []
+      objects = hashes.nil? ? [] : hashes.map { |attributes| new(attributes) }
     end
   end
 end

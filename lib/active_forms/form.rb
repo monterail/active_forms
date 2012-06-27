@@ -10,7 +10,7 @@ class ActiveForms::Form < ActiveForms::Mapper
       hashes = response["forms"]["form"]
       hashes = [hashes] if hashes.is_a?(Hash)
 
-      objects = hashes.map { |attributes| new(attributes) }
+      objects = hashes.nil? ? [] : hashes.map { |attributes| new(attributes) }
     end
   end
 

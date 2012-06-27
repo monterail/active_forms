@@ -22,19 +22,29 @@ module ActiveForms
     end
   end
 
-  class Error                   < StandardError; end
+  class Error < StandardError; end
 
-  class MissingParameter        < Error; end
-  class ApiVersionNotSupported  < Error; end
-  class MissingVendor           < Error; end
-  class MissingResource         < Error; end
-  class ResourceNotSupported    < Error; end
-  class BadParameterFormat      < Error; end
-  class ApiKeyInvalid           < Error; end
-  class ApiTimestampInvalid     < Error; end
-  class ApiSigInvalid           < Error; end
-  class MethodNotAllowed        < Error; end
-  class FormNotFound            < Error; end
-  class FormVersionNotFound     < Error; end
-  class ApplicationNotFound     < Error; end
+  class ApiKeyInvalid             < Error; end
+  class ApiSigInvalid             < Error; end
+  class ApiTimestampInvalid       < Error; end
+  class ApiVersionNotSupported    < Error; end
+  class ApplicationNotFound       < Error; end
+  class ApplicationNotSent        < Error; end
+  class BadParameterFormat        < Error; end
+  class FieldNotFound             < Error; end
+  class FieldNotMultiple          < Error; end
+  class Forbidden                 < Error; end
+  class FormActiveVersionNotFound < Error; end
+  class FormNotFound              < Error; end
+  class FormVersionNotFound       < Error; end
+  class InternalServerError       < Error; end
+  class MethodNotAllowed          < Error; end
+  class MissingParameter          < Error; end
+  class MissingResource           < Error; end
+  class MissingVendor             < Error; end
+  class NullResponse              < Error; end
+  class OptionNotFound            < Error; end
+  class ResourceNotSupported      < Error; end
+  class TemplateNotFound          < Error; end
+  class Unauthorized              < Error; end
 end

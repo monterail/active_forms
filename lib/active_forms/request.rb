@@ -37,8 +37,8 @@ module ActiveForms
       end
 
       @api_params["apiKey"]       = ActiveForms.configuration.api_key
-      @api_params["apiVersion"]   = "1.0"
-      @api_params["apiTimestamp"] ||= Time.now.utc.iso8601(3)
+      @api_params["apiVersion"]   = "3.0"
+      @api_params["apiTimestamp"] ||= Time.now.strftime('%Y-%m-%dT%H:%M:%S.000 %z')
       @api_params["apiSig"]       = api_sig
 
       @uri = build_uri
@@ -59,7 +59,13 @@ module ActiveForms
 
     def build_uri
       params     = http_method == "GET" ? @params.map { |k, v| "#{k}=#{CGI::escape(v)}" } : []
-      api_params = @api_params.map { |k, v| "#{k}=#{v}" }
+      api_params = @api_params.map do |k, v|
+        if k == 'apiTimestamp'
+          "#{k}=#{CGI::escape(v)}"
+        else
+          "#{k}=#{v}"
+        end
+      end
 
       url_with_path + "?" + [params, api_params].flatten.join("&")
     end
@@ -86,7 +92,7 @@ module ActiveForms
         begin
           klass = ("ActiveForms::" << response["error"]["code"].downcase.camelize).constantize
           raise klass.new(response["error"]["message"])
-        rescue NoMethodError
+        rescue NameError, NoMethodError
           raise("Unknown exception: #{response["error"].inspect}")
         end
       end

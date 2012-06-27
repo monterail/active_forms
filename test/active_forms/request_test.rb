@@ -6,12 +6,12 @@ class ActiveForms::RequestTest < Test::Unit::TestCase
 
     context "GET request" do
       setup do
-        @request = ActiveForms::Request.new(:get, "forms", :param => "a&b value", :apiTimestamp => Time.parse("2010-02-18T01:18:19.218Z").utc.iso8601(3), :apiParam => "apiValue", :apiKey => "fake", :apiVersion => "fake", :apiSig => "fake")
+        @request = ActiveForms::Request.new(:get, "forms", :param => "a&b value", :apiTimestamp => "2010-02-18T01:18:19.210+0200", :apiParam => "apiValue", :apiKey => "fake", :apiVersion => "fake", :apiSig => "fake")
       end
 
       should "recognize params and apiParams" do
         assert_equal "a&b value", @request.params["param"]
-        assert_equal "2010-02-18T01:18:19.218Z", @request.api_params["apiTimestamp"]
+        assert_equal "2010-02-18T01:18:19.210+0200", @request.api_params["apiTimestamp"]
       end
 
       should "set apiKey, apiVersion and apiSig params by itself" do
@@ -21,11 +21,11 @@ class ActiveForms::RequestTest < Test::Unit::TestCase
       end
 
       should "have apiSig counted" do
-        assert_equal "8069430fe9aabbc2c2fcc895cd423f2a83085185", @request.api_params["apiSig"]
+        assert_equal "4d249bdd51f7da5fa4c9bfbdfc44ff5df291862b", @request.api_params["apiSig"]
       end
 
       should "have correct uri" do
-        assert_same_uri "https://api.example.com/client/forms?apiSig=8069430fe9aabbc2c2fcc895cd423f2a83085185&apiKey=123456&apiTimestamp=2010-02-18T01:18:19.218Z&apiVersion=1.0&param=a%26b+value&apiParam=apiValue", @request.uri
+        assert_same_uri "https://api.example.com/client/forms?apiSig=4d249bdd51f7da5fa4c9bfbdfc44ff5df291862b&apiKey=123456&apiTimestamp=2010-02-18T01%3A18%3A19.210%2B0200&apiVersion=3.0&param=a%26b+value&apiParam=apiValue", @request.uri
       end
 
       should "have params escaped in uri" do
@@ -60,15 +60,15 @@ class ActiveForms::RequestTest < Test::Unit::TestCase
 
     context "POST request" do
       setup do
-        @request = ActiveForms::Request.new(:post, "forms", :param => "a&b value", :apiTimestamp => Time.parse("2010-02-18T01:18:19.218Z").utc.iso8601(3), :apiParam => "apiValue")
+        @request = ActiveForms::Request.new(:post, "forms", :param => "a&b value", :apiTimestamp => "2010-02-18T01:18:19.218+0200", :apiParam => "apiValue")
       end
 
       should "have api_sig counted" do
-        assert_equal "fa9c81c5fcdf078528730ff765044f7d4dbcaa8e", @request.api_params["apiSig"]
+        assert_equal "eaeb701de3bb1450859ef16eb9fda5c7db407e38", @request.api_params["apiSig"]
       end
 
       should "have correct uri" do
-        assert_same_uri "https://api.example.com/client/forms?apiSig=fa9c81c5fcdf078528730ff765044f7d4dbcaa8e&apiKey=123456&apiTimestamp=2010-02-18T01:18:19.218Z&apiVersion=1.0&apiParam=apiValue", @request.uri
+        assert_same_uri "https://api.example.com/client/forms?apiSig=eaeb701de3bb1450859ef16eb9fda5c7db407e38&apiKey=123456&apiTimestamp=2010-02-18T01%3A18%3A19.218%2B0200&apiVersion=3.0&apiParam=apiValue", @request.uri
       end
     end
 
@@ -86,15 +86,15 @@ class ActiveForms::RequestTest < Test::Unit::TestCase
 
     context "DELETE request" do
       setup do
-        @request = ActiveForms::Request.new(:delete, "forms", :param => "a&b value", :apiTimestamp => Time.parse("2010-02-18T01:18:19.218Z").utc.iso8601(3), :apiParam => "apiValue")
+        @request = ActiveForms::Request.new(:delete, "forms", :param => "a&b value", :apiTimestamp => "2010-02-18T01:18:19.218+0200", :apiParam => "apiValue")
       end
 
       should "have api_sig counted" do
-        assert_equal "ac5efc63ff1382765fdc29940cf6fb7119f9c763", @request.api_params["apiSig"]
+        assert_equal "3d82ae9adde6db7cf3b4ef0d35e411f0cc6b1e42", @request.api_params["apiSig"]
       end
 
       should "have correct uri" do
-        assert_same_uri "https://api.example.com/client/forms?apiSig=ac5efc63ff1382765fdc29940cf6fb7119f9c763&apiKey=123456&apiTimestamp=2010-02-18T01:18:19.218Z&apiVersion=1.0&apiParam=apiValue", @request.uri
+        assert_same_uri "https://api.example.com/client/forms?apiSig=3d82ae9adde6db7cf3b4ef0d35e411f0cc6b1e42&apiKey=123456&apiTimestamp=2010-02-18T01%3A18%3A19.218%2B0200&apiVersion=3.0&apiParam=apiValue", @request.uri
       end
     end
 

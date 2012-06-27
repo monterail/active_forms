@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class ActiveForms::EntryPrintout < ActiveForms::Mapper
   columns :formCode, :formVersionCode, :number, :date, :status, :contentType, :identifier, :printoutContent
 

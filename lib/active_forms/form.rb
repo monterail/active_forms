@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class ActiveForms::Form < ActiveForms::Mapper
   columns :name, :code, :url, :status, :activeReleaseCode, :activeReleaseName, :title, :isPrintable
 

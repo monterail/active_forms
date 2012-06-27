@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class ActiveForms::FormVersion < ActiveForms::Mapper
   columns :name, :code, :url, :mailIntegration, :accessType, :authKey, :status,
     :description, :creationDate, :isPrintable

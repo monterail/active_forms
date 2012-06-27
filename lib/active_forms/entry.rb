@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class ActiveForms::Entry < ActiveForms::Mapper
   columns :number, :formCode, :formVersionCode, :date, :status, :isPrintable, :fieldData, :accessToken
 

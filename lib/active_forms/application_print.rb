@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class ActiveForms::ApplicationPrint < ActiveForms::Mapper
   columns :formCode, :formVersionCode, :number, :date, :status, :contentType, :printContent
 

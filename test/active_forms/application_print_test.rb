@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require 'test_helper'
 
 class ActiveForms::ApplicationPrintTest < Test::Unit::TestCase

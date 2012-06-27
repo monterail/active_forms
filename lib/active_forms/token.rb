@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class ActiveForms::Token < ActiveForms::Mapper
   columns :value
 

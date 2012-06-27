@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 module ActiveForms
   class Configuration
     attr_accessor :api_url, :url, :base_url, :api_key, :secret_key

@@ -38,7 +38,7 @@ class ActiveForms::ApplicationPrintTest < Test::Unit::TestCase
 
     context "when sent ActiveForms::ApplicationPrint.find with form code and application number" do
       setup do
-        stub_get(/applicationprint/, success_response("get_applicationprint"))
+        stub_get(/applicationprint/, success_response("get_applicationprint.xml"))
         @application_print = ActiveForms::ApplicationPrint.find(:apiFormCode => "credit_card_application", :apiNumber => "23456")
       end
 

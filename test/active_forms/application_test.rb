@@ -36,7 +36,7 @@ class ActiveForms::ApplicationTest < Test::Unit::TestCase
 
     context "when sent ActiveForms::Application.all with multi-response" do
       setup do
-        stub_get(/applications/, success_response("get_applications"))
+        stub_get(/applications/, success_response("get_applications.xml"))
         @applications = ActiveForms::Application.all
       end
 
@@ -67,7 +67,7 @@ class ActiveForms::ApplicationTest < Test::Unit::TestCase
 
     context "when sent ActiveForms::Application.all with single-response" do
       setup do
-        stub_get(/applications/, success_response("get_applications_single"))
+        stub_get(/applications/, success_response("get_applications_single.xml"))
         @applications = ActiveForms::Application.all
       end
 

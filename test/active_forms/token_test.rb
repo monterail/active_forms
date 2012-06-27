@@ -10,7 +10,7 @@ class ActiveForms::EntryTest < Test::Unit::TestCase
 
     context "when sent ActiveForms::Token.all with multi-response" do
       setup do
-        stub_get(/formaccesstokens/, success_response("get_formaccesstokens"))
+        stub_get(/formaccesstokens/, success_response("get_formaccesstokens.xml"))
         @tokens = ActiveForms::Token.all :apiFormCode => 'hipoteka'
       end
 

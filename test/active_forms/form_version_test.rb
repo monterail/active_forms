@@ -10,7 +10,7 @@ class ActiveForms::FormVersionTest < Test::Unit::TestCase
 
     context "when send ActiveForms::FormVersion.all with multi-response" do
       setup do
-        stub_get(/forminfo/, success_response("get_forminfo"))
+        stub_get(/forminfo/, success_response("get_forminfo.xml"))
         @versions = ActiveForms::FormVersion.all :apiFormCode => 'hipoteka'
       end
 

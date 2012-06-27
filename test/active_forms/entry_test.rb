@@ -36,7 +36,7 @@ class ActiveForms::EntryTest < Test::Unit::TestCase
 
     context "when sent ActiveForms::Entry.all with multi-response" do
       setup do
-        stub_get(/entries/, success_response("get_entries"))
+        stub_get(/entries/, success_response("get_entries.xml"))
         @entries = ActiveForms::Entry.all
       end
 
@@ -67,7 +67,7 @@ class ActiveForms::EntryTest < Test::Unit::TestCase
 
     context "when sent ActiveForms::Entry.all with single-response" do
       setup do
-        stub_get(/entries/, success_response("get_entries_single"))
+        stub_get(/entries/, success_response("get_entries_single.xml"))
         @entries = ActiveForms::Entry.all
       end
 
@@ -87,7 +87,7 @@ class ActiveForms::EntryTest < Test::Unit::TestCase
 
     context "when post entry data by ActiveForms::Entry.create" do
       setup do
-        stub_post(/entrydata/, success_response("post_entrydata"))
+        stub_post(/entrydata/, success_response("post_entrydata.xml"))
         @entry = ActiveForms::Entry.create :apiFormCode => 'credit_card_entry'
       end
 
@@ -109,7 +109,7 @@ class ActiveForms::EntryTest < Test::Unit::TestCase
       setup do
         @response = { :status => ["204", "No content"], :content_type => "text/xml"}
         stub_delete(/entrydata/, @response)
-        stub_get(/entries/, success_response("get_entries"))
+        stub_get(/entries/, success_response("get_entries.xml"))
         @entries = ActiveForms::Entry.all
       end
 

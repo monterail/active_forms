@@ -53,7 +53,7 @@ class Test::Unit::TestCase
     response = {
       :status       => ["200", "OK"],
       :content_type => "text/xml",
-      :body         => fixture(file || "success")
+      :body         => fixture(file || "success.xml")
     }
   end
 
@@ -61,12 +61,12 @@ class Test::Unit::TestCase
     response = {
       :status       => ["401", "Unauthorized"],
       :content_type => "text/xml",
-      :body         => fixture(file || "error")
+      :body         => fixture(file || "error.xml")
     }
   end
 
   def fixture(file)
-    File.read(File.join(File.dirname(__FILE__), "fixtures", "#{file}.xml"))
+    File.read(File.join(File.dirname(__FILE__), "fixtures", "#{file}"))
   end
 end
 

@@ -38,7 +38,7 @@ class ActiveForms::EntryPrintoutTest < Test::Unit::TestCase
 
     context "when sent ActiveForms::EntryPrintout.find with form code and application number" do
       setup do
-        stub_get(/entryprintout/, success_response("get_entryprintout"))
+        stub_get(/entryprintout/, success_response("get_entryprintout.xml"))
         @entry_printout = ActiveForms::EntryPrintout.find(:formCode => "credit_card_entry", :number => "23456")
       end
 

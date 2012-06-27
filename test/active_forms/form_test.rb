@@ -10,7 +10,7 @@ class ActiveForms::FormTest < Test::Unit::TestCase
 
     context "when sent ActiveForms::Form.all with multi-response" do
       setup do
-        stub_get(/forms/, success_response("get_forms"))
+        stub_get(/forms/, success_response("get_forms.xml"))
         @forms = ActiveForms::Form.all
       end
 
@@ -41,7 +41,7 @@ class ActiveForms::FormTest < Test::Unit::TestCase
 
     context "when sent ActiveForms::Form.all with single-response" do
       setup do
-        stub_get(/forms/, success_response("get_forms_single"))
+        stub_get(/forms/, success_response("get_forms_single.xml"))
         @forms = ActiveForms::Form.all
       end
 

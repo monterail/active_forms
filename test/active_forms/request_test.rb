@@ -82,7 +82,7 @@ class ActiveForms::RequestTest < Test::Unit::TestCase
 
       should "be equivalent to Request.new(:post, path).perform" do
         request = ActiveForms::Request.new(:post, "forms", :param => "value")
-        assert_equal @response, request.perform
+        assert_equal @response.parsed_response, request.perform.parsed_response
       end
     end
 
@@ -108,7 +108,7 @@ class ActiveForms::RequestTest < Test::Unit::TestCase
 
       should "be equivalent to Request.new(:delete, path).perform" do
         request = ActiveForms::Request.new(:delete, "forms", :param => "value")
-        assert_equal @response, request.perform
+        assert_equal @response.parsed_response, request.perform.parsed_response
       end
     end
   end

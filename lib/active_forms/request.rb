@@ -91,16 +91,30 @@ module ActiveForms
     end
 
     def verify_response(response)
-      ActiveForms.log("[ActiveForms] Response: #{response}")
-      if response["error"]
-        begin
-          klass = ("ActiveForms::" << response["error"]["code"].downcase.camelize).constantize
-          raise klass.new(response["error"]["message"])
-        rescue NameError, NoMethodError
-          raise("Unknown exception: #{response["error"].inspect}")
+      exception = nil
+
+      begin
+        # force parsing response to detect parsing errors
+        response.parsed_response
+
+        ActiveForms.log("[ActiveForms] Response: #{response}")
+        if response["error"]
+          begin
+            klass     = ("ActiveForms::" << response["error"]["code"].downcase.camelize).constantize
+            exception = klass.new(response["error"]["message"])
+          rescue NameError, NoMethodError
+            exception = Error.new("Unknown exception: #{response["error"].inspect}")
+          end
+        elsif response.response.code !~ /^20\d$/
+          exception = Error.new("Request returned status #{response.response.code} and does include properly formatted error message.")
         end
-      elsif response.response.code !~ /^20\d$/
-        raise Error.new("Request returned status #{response.response.code} and does include properly formatted error message.")
+      rescue MultiXml::ParseError
+        exception = ParseError.new($!.message)
+      end
+
+      unless exception.nil?
+        exception.response = response
+        raise exception
       end
     end
   end

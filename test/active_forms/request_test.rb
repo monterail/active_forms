@@ -124,5 +124,18 @@ class ActiveForms::RequestTest < Test::Unit::TestCase
         end
       end
     end
+
+    context "Request that returns invalid XML" do
+      setup do
+        stub_get(/.+/, error_response("parse_error.html"))
+        @request = ActiveForms::Request.new(:get, "entries")
+      end
+
+      should "raise ParseError exception" do
+        assert_raise ActiveForms::ParseError do
+          @request.perform
+        end
+      end
+    end
   end
 end

@@ -34,7 +34,9 @@ module ActiveForms
     end
   end
 
-  class Error < StandardError; end
+  class Error < StandardError
+    attr_accessor :response
+  end
 
   class ApiKeyInvalid             < Error; end
   class ApiSigInvalid             < Error; end
@@ -56,6 +58,7 @@ module ActiveForms
   class MissingVendor             < Error; end
   class NullResponse              < Error; end
   class OptionNotFound            < Error; end
+  class ParseError                < Error; end
   class ResourceNotSupported      < Error; end
   class TemplateNotFound          < Error; end
   class Unauthorized              < Error; end

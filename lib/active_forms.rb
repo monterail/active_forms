@@ -5,6 +5,7 @@ require 'active_support'
 require 'active_forms/configuration'
 require 'active_forms/mapper'
 require 'active_forms/request'
+require 'active_forms/version'
 
 require 'active_forms/application'
 require 'active_forms/application_print'

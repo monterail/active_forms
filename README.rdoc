@@ -1,7 +1,0 @@
-= active_forms
-
-ActiveForms API wrapper.
-
-== Copyright
-
-Copyright (c) 2010 Monterail. See LICENSE for details.

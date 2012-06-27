@@ -26,6 +26,12 @@ module ActiveForms
       self.configuration ||= Configuration.new
       yield(configuration)
     end
+
+    def log(msg)
+      if configuration.logger
+        configuration.logger.info(msg)
+      end
+    end
   end
 
   class Error < StandardError; end

@@ -47,12 +47,13 @@ module ActiveForms
     end
 
     def perform
+      ActiveForms.log("[ActiveForms] Request: #{http_method.upcase} #{uri}")
       begin
         response = HTTParty.send(http_method.downcase, uri)
-        raise_error(response)
+        verify_response(response)
       rescue
         response = HTTParty.send(http_method.downcase, uri)
-        raise_error(response)
+        verify_response(response)
       end
       response
     end
@@ -89,7 +90,8 @@ module ActiveForms
       Digest::SHA1.hexdigest(string)
     end
 
-    def raise_error(response)
+    def verify_response(response)
+      ActiveForms.log("[ActiveForms] Response: #{response}")
       if response["error"]
         begin
           klass = ("ActiveForms::" << response["error"]["code"].downcase.camelize).constantize

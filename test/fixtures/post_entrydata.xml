@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entryPutConfirmation
+xmlns="http://api.activeforms.com"
+apiVersion="3.0"
+number="12234"
+formCode="credit_card_entry"
+formVersionCode="version_1"
+date="2008-01-01T00:00:00.00+0000"
+status="saved"
+isPrintable="true"
+accessToken="43r9j34f9j3"
+/>

@@ -6,7 +6,11 @@ require 'active_forms/request'
 
 require 'active_forms/application'
 require 'active_forms/application_print'
+require 'active_forms/entry'
+require 'active_forms/entry_printout'
 require 'active_forms/form'
+require 'active_forms/form_version'
+require 'active_forms/token'
 
 module ActiveForms
   class << self

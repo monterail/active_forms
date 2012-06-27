@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formInfo
+xmlns="http://api.activeforms.com/3.0"
+apiVersion="3.0"
+code="hipoteka"
+name="Wniosek do kampanii hipotecznej"
+url="https://www.activeforms.com/bank/wniosek_o_karte_kredytowa"
+mailIntegration="true"
+accessType="public"
+authKey="as432w3fq24r"
+>
+<formVersion code="1.0" name="Podstawowa" status="active"
+description="Pierwsza wersja wniosku"
+creationDate="2007-01-01 12:00:00+0100" isPrintable="false" />
+<formVersion code="1.1" name="Poprawki" status="inactive"
+description="Druga wersja wniosku"
+creationDate="2007-01-02 12:00:00+0100" isPrintable="true" />
+<formVersion code="1.2" name="Poprawki 2" status="inactive"
+description="Trzecia wersja wniosku"
+creationDate="2007-01-03 12:00:00+0100" isPrintable="true" />
+</formInfo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entryPrintout
+xmlns="http://api.activeforms.com"
+apiVersion="3.0"
+formCode="credit_card_entry"
+formVersionCode="version_1"
+number="23456"
+date="2007-08-23T12:43:03"
+status="sent"
+contentType="application/pdf"
+>
+<printoutContent>
+/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAMABAADASIA
+</printoutContent>
+</entryPrintout>

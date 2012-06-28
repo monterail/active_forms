@@ -58,6 +58,11 @@ class ActiveForms::RequestTest < Test::Unit::TestCase
           end
         end
       end
+
+      should "have empty options" do
+        expected = {}
+        assert_equal expected, @request.options
+      end
     end
 
     context "POST request" do
@@ -135,6 +140,23 @@ class ActiveForms::RequestTest < Test::Unit::TestCase
         assert_raise ActiveForms::ParseError do
           @request.perform
         end
+      end
+    end
+  end
+
+  context "configured with basic_auth" do
+    setup do
+      configure(:basic_auth => { :username => "user", :password => "pass" })
+    end
+
+    context "request" do
+      setup do
+        @request = ActiveForms::Request.new(:get, "entries")
+      end
+
+      should "have correct options" do
+        expected = { :basic_auth => { :username => "user", :password => "pass" } }
+        assert_equal expected, @request.options
       end
     end
   end

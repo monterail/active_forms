@@ -6,7 +6,7 @@ require 'httparty'
 
 module ActiveForms
   class Request
-    attr_reader :http_method, :path, :params, :api_params, :uri
+    attr_reader :http_method, :path, :params, :api_params, :uri, :options
 
     class << self
       def get(path, all_params = {})
@@ -44,15 +44,16 @@ module ActiveForms
       @api_params["apiSig"]       = api_sig
 
       @uri = build_uri
+      @options = build_options
     end
 
     def perform
       ActiveForms.log("[ActiveForms] Request: #{http_method.upcase} #{uri}")
       begin
-        response = HTTParty.send(http_method.downcase, uri)
+        response = HTTParty.send(http_method.downcase, uri, options)
         verify_response(response)
       rescue
-        response = HTTParty.send(http_method.downcase, uri)
+        response = HTTParty.send(http_method.downcase, uri, options)
         verify_response(response)
       end
       response
@@ -71,6 +72,10 @@ module ActiveForms
       end
 
       url_with_path + "?" + [params, api_params].flatten.join("&")
+    end
+
+    def build_options
+      ActiveForms.configuration.basic_auth ? { :basic_auth => ActiveForms.configuration.basic_auth } : {}
     end
 
     def url_with_path

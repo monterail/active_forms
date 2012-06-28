@@ -15,13 +15,16 @@ class Test::Unit::TestCase
     FakeWeb.clean_registry
   end
 
-  def configure
+  def configure(opts = {})
     ActiveForms.configure do |c|
       c.api_url    = { :protocol => "https", :host => "api.example.com" }
       c.url        = { :protocol => "https", :host => "www.example.com" }
       c.base_url   = "client"
       c.api_key    = "123456"
       c.secret_key = "abcdef"
+      opts.each do |k, v|
+        c.send("#{k}=", v)
+      end
     end
   end
 

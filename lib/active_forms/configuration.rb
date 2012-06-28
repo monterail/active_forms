@@ -2,7 +2,7 @@
 
 module ActiveForms
   class Configuration
-    attr_accessor :api_url, :url, :base_url, :api_key, :secret_key, :logger
+    attr_accessor :api_url, :url, :base_url, :api_key, :secret_key, :logger, :basic_auth
 
     def initialize
       @api_url = { :protocol => "https", :host => 'api.activeforms.com' }

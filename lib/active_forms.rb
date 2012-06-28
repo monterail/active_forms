@@ -45,6 +45,7 @@ module ActiveForms
   class ApplicationNotFound       < Error; end
   class ApplicationNotSent        < Error; end
   class BadParameterFormat        < Error; end
+  class EntryNotFound             < Error; end
   class FieldNotFound             < Error; end
   class FieldNotMultiple          < Error; end
   class Forbidden                 < Error; end
